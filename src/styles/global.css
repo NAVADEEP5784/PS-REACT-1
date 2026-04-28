@@ -1,0 +1,151 @@
+/* Modern global stylesheet: reset, utilities, navbar, buttons, responsiveness */
+
+/* Reset + box sizing */
+*, *::before, *::after {
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+}
+
+html, body, #root {
+    height: 100%;
+}
+
+body {
+    font-family: var(--sans, system-ui, 'Segoe UI', Roboto, sans-serif);
+    color: var(--text, #222);
+    background: var(--bg, #fff);
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
+    line-height: 1.45;
+}
+
+/* Layout container */
+.container {
+    width: 1126px;
+    max-width: 100%;
+    margin: 0 auto;
+    padding: 0 16px;
+}
+
+/* Navbar */
+.nav {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 12px;
+    height: 72px;
+    padding: 0 20px;
+    background: transparent;
+    border-bottom: 1px solid var(--border, #e8e8ef);
+}
+
+.nav .left {
+    display: flex;
+    align-items: center;
+    gap: 12px;
+}
+
+.nav .left .logo {
+    font-size: 20px;
+    font-weight: 700;
+    color: var(--accent, #aa3bff);
+}
+
+.nav .right {
+    display: flex;
+    align-items: center;
+    gap: 12px;
+}
+
+/* Treat the existing headings as action controls */
+.nav .right h2 {
+    margin: 0;
+    font-size: 15px;
+}
+
+.btn {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    gap: 8px;
+    padding: 8px 14px;
+    border-radius: 10px;
+    font-weight: 600;
+    cursor: pointer;
+    text-decoration: none;
+    transition: transform 120ms ease, box-shadow 120ms ease, opacity 120ms ease;
+    user-select: none;
+}
+
+.btn:active { transform: translateY(1px); }
+
+.btn-primary {
+    background: linear-gradient(90deg, var(--accent, #aa3bff), #7a2bff);
+    color: white;
+    border: none;
+    box-shadow: var(--shadow, rgba(0,0,0,0.08) 0 6px 14px);
+}
+
+.btn-outline {
+    background: transparent;
+    color: var(--text-h, #08060d);
+    border: 1px solid var(--border, #e5e4e7);
+}
+
+/* Small-screen responsive nav: stack items */
+@media (max-width: 700px) {
+    .nav {
+        flex-direction: column;
+        align-items: stretch;
+        gap: 8px;
+        height: auto;
+        padding: 12px;
+    }
+
+    .nav .right {
+        width: 100%;
+        justify-content: flex-end;
+    }
+
+    .nav .right .btn {
+        padding: 10px 12px;
+        border-radius: 8px;
+    }
+}
+
+/* Small utilities */
+.sr-only {
+    position: absolute;
+    width: 1px;
+    height: 1px;
+    padding: 0;
+    margin: -1px;
+    overflow: hidden;
+    clip: rect(0, 0, 0, 0);
+    white-space: nowrap;
+    border: 0;
+}
+
+.row { display:flex; gap:12px; align-items:center; }
+.column { display:flex; flex-direction:column; gap:12px; }
+.rounded { border-radius: 8px; }
+.shadow { box-shadow: var(--shadow, rgba(0,0,0,0.06) 0 8px 20px); }
+
+/* Minor tweaks to headings used in Navbar */
+.nav .right h2 {
+    padding: 8px 10px;
+}
+
+.nav .right h2.signup {
+    color: var(--text-h);
+}
+
+.nav .right h2.login {
+    color: white;
+    background: var(--accent, #aa3bff);
+    border-radius: 8px;
+    padding: 8px 12px;
+}
+
+/* End of global styles */
